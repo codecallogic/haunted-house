@@ -135,6 +135,10 @@ const doorLight = new THREE.PointLight('#ff7d46', 1, 7)
 doorLight.position.set(0, 2.2, 2.7)
 house.add(doorLight)
 
+// Fog
+const fog = new THREE.Fog('#262837', 1, 15)
+scene.fog = fog
+
 /**
  * Sizes
  */
@@ -165,7 +169,7 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 4
 camera.position.y = 2
-camera.position.z = 10
+camera.position.z = 6
 scene.add(camera)
 
 // Controls
@@ -180,6 +184,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setClearColor('#262837')
 
 /**
  * Animate
